@@ -1,17 +1,13 @@
-// need to const fs variable here
-const fs = require("fs")
+const fs = require("fs");
 
 
-// the inquirer variable
 const inquirer = require("inquirer");
 
 
-// markdown js file
 const generateMarkdown = require("./utils/generateMarkdown");
 
 
-// License function and if/else section here
-
+ 
 function getLicense(value) {
     if (value === "GNU AGPLv3") {
         return "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)";
@@ -30,56 +26,55 @@ function getLicense(value) {
     }
 }
 
+
 function validateInput(value) {
     if (value != "") {
         return true;
+    } else {
+        return "Please answer the question with some kind on input.";
     }
-    else {
-        return "Please answer the question with some kind of input"
-    }
-
 }
 
+
 const questions = [
-    // Question for the title
+  
     {
         type: "input",
         name: "title",
         message: "What is the title of your project?",
-        validate: validateInput
+        validate: validateInput,
     },
-
     // Question for the project Description
     {
         type: "input",
-        name: "Description",
-        message: "Please enter a description of your project",
+        name: "description",
+        message: "Please enter a description of your project.",
         validate: validateInput,
     },
 
-    // Table of contents, andling this in the markdown.js
+    // Table of Contents, andling this in the markdown.js
 
     // Question for Installation
     {
         type: "input",
         name: "installation",
-        message: "Please write the description how to install the software, or commands for the program",
+        message: "Please enter an explanation how to install the software, or commands for the program.",
         validate: validateInput,
-
     },
-    //Question for the Usage
+
+    // Question for Usage
     {
         type: "input",
         name: "usage",
-        message: "Please write the description how to use the software, or commands for the program",
+        message: "Please describe how we can use this program/project.",
         validate: validateInput,
     },
 
-    // Question for licenses
+    // Question for License 
     {
         type: "list",
         name: "license",
-        message: "Please select a license for this project",
+        message: "Please select a license for this project.",
         choices: [
             "GNU AGPLv3",
             "GNU GPLv3",
@@ -87,79 +82,69 @@ const questions = [
             "Apache 2.0",
             "Boost Software 1.0",
             "MIT",
-            "MPL 2.0",
-
+            "Mozilla",
         ],
         validate: validateInput,
     },
 
-    // Question for the contibuting
+    // Question for Contributing 
     {
         type: "input",
         name: "contributing",
-        message: "how can other users contribute the your project",
+        message: "How can users contribute to your project.",
         validate: validateInput,
-
     },
 
     // Question for Tests
     {
         type: "input",
-        name: "contributing",
-        message: "Please enter any testing instruction for this project",
-        validate: validateInput
-    },
-
-    // Question for github
-    {
-        type: "input",
-        name: "userName",
-        message: "What is your Github username",
+        name: "tests",
+        message: "Please enter any testing instructions you would like to provide for this project.",
         validate: validateInput,
     },
 
+    
+    {
+        type: "input",
+        name: "userName",
+        message: "What is your GitHub username?",
+        validate: validateInput,
+    },
 
-    // Question for github email address
-
+    
     {
         type: "input",
         name: "userEmail",
-        message: "What is your Github email address",
+        message: "What is your GitHub email address that contributors may contact?",
         validate: function (value) {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-                return true
-
+            if (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(value)) {
+                return true;
             } else {
-                return "Please write a valid address"
+                return "Not a valid email address. Please enter a valid email address.";
             }
+        },
+    },
+];
 
+
+// function to generate the ReadMe here
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, generateMarkdown(data), function (err) {
+        if (err) {
+            return console.log(err);
         }
-    }
-
-
-
-
-
-]
-
-// function to make to readme here
-function writeToFile(fileName, date){
-    fs.writeFile(fileName, generateMarkdown(date), function(err){
-        if(err){ // to check if err === true
-            return console.log(err)
-        }
-    })
-
-}
-
-function init() {
-    inquirer.prompt(questions).then((data) => {
-        console.log(JSON.stringify(data, null, " "));
-        data.getLicense = getLicense(data.license);
-        writeToFile("./example/readme.md", data);
     });
 }
 
 
+// function to initalize the beginning of the questions 
+function init() {
+    inquirer.prompt(questions).then((data) => {
+        console.log(JSON.stringify(data, null, " "));
+        data.getLicense = getLicense(data.license);
+        writeToFile("./example/README.md", data);
+    });
+}
 
+// call the function to initalize the beginning of the questions 
 init();

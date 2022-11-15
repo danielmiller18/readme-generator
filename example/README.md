@@ -1,10 +1,10 @@
 
 # Project Title
 test
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # Description
-undefined
+tesing
 
 # Table of Contents 
 * [Installation](#-Installation)
@@ -21,16 +21,16 @@ test
 test
 
 # License 
-GNU AGPLv3
+GNU GPLv3
 * As this license list was not comprehensive, if you need another license, use the contact information below to ask for license to be added. 
 
 # Contributing 
 test
 
 # Tests
-undefined
+test
 
 # Contact Information 
-* GitHub Username: test
-* Contact Email: test@gmail.com
+* GitHub Username: test@test.com
+* Contact Email: test@test.com
 
