@@ -3,7 +3,7 @@ const fs = require("fs")
 
 
 // the inquirer variable
-const inquirer = require("inquire");
+const inquirer = require("inquirer");
 
 
 // markdown js file
@@ -115,7 +115,7 @@ const questions = [
         type: "input",
         name: "userName",
         message: "What is your Github username",
-        validate: "validateInput",
+        validate: validateInput,
     },
 
 
@@ -152,8 +152,14 @@ function writeToFile(fileName, date){
 
 }
 
+function init() {
+    inquirer.prompt(questions).then((data) => {
+        console.log(JSON.stringify(data, null, " "));
+        data.getLicense = getLicense(data.license);
+        writeToFile("./example/readme.md", data);
+    });
+}
 
 
 
-
-// init();
+init();
