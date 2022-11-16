@@ -1,10 +1,10 @@
 
 # Project Title
-test
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+README generator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Description
-tesing
+using node to generate a usable README file
 
 # Table of Contents 
 * [Installation](#-Installation)
@@ -15,22 +15,22 @@ tesing
 * [Questions](#-Contact-Information)
     
 # Installation
-test
+type "node index.js" to prompt questions for the README
 
 # Usage
-test
+We can use this to easily generate a README file instead of typing it all out manually
 
 # License 
-GNU GPLv3
+MIT
 * As this license list was not comprehensive, if you need another license, use the contact information below to ask for license to be added. 
 
 # Contributing 
-test
+Following me on github and accessing the public repo
 
 # Tests
-test
+check all syntax and spelling before use to avoid errors. As well as making sure the node version is current
 
 # Contact Information 
-* GitHub Username: test@test.com
-* Contact Email: test@test.com
+* GitHub Username: danielmiller18
+* Contact Email: daniel.miller18@yahoo.com
 

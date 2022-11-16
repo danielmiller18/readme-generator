@@ -52,7 +52,7 @@ const questions = [
         validate: validateInput,
     },
 
-    // Table of Contents, andling this in the markdown.js
+    
 
     // Question for Installation
     {
@@ -117,7 +117,7 @@ const questions = [
         name: "userEmail",
         message: "What is your GitHub email address that contributors may contact?",
         validate: function (value) {
-            if (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(value)) {
+            if (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(value)) { // regex expression used here
                 return true;
             } else {
                 return "Not a valid email address. Please enter a valid email address.";
@@ -128,6 +128,7 @@ const questions = [
 
 
 // function to generate the ReadMe here
+// file handling done here
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, generateMarkdown(data), function (err) {
         if (err) {
