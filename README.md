@@ -38,3 +38,5 @@ check all syntax and spelling before use to avoid errors. As well as making sure
 
 
 ![README](assets/Capture.PNG)
+
+[Walk-through video](https://watch.screencastify.com/v/q1WJkdNUxQShfRChdY43)
