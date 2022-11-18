@@ -33,4 +33,3 @@ check all syntax and spelling before use to avoid errors. As well as making sure
 # Contact Information 
 * GitHub Username: danielmiller18
 * Contact Email: daniel.miller18@yahoo.com
-
